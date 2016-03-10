@@ -71,12 +71,12 @@ namespace WindowsFormsPhotoDirComparer
 
         private void GoClick(object sender, EventArgs e)
         {
-            if(_picturesLeft == null)
+            if (_picturesLeft == null)
             {
                 LoadLeft();
             }
 
-            if(_picturesRight == null)
+            if (_picturesRight == null)
             {
                 LoadRight();
             }
@@ -126,7 +126,7 @@ namespace WindowsFormsPhotoDirComparer
                     Cursor.Current = Cursors.Default;
                 }
             }
-            
+
             return result;
         }
 
@@ -152,7 +152,7 @@ namespace WindowsFormsPhotoDirComparer
                     rightPictures.Remove(foundRightPicture);
                 }
             }
-            foreach(var rightPicture in rightPictures)
+            foreach (var rightPicture in rightPictures)
             {
                 originals.Item2.Add(rightPicture);
             }
@@ -188,7 +188,7 @@ namespace WindowsFormsPhotoDirComparer
 
         private void CopyToRightClick(object sender, EventArgs e)
         {
-            foreach(var picture in _picturesLeft)
+            foreach (var picture in _picturesLeft)
             {
                 Copy(picture.Name, _textPathLeft.Text, _textPathRight.Text);
             }
@@ -196,7 +196,7 @@ namespace WindowsFormsPhotoDirComparer
 
         private void CopyToLeftClick(object sender, EventArgs e)
         {
-            foreach(var picture in _picturesRight)
+            foreach (var picture in _picturesRight)
             {
                 Copy(picture.Name, _textPathRight.Text, _textPathLeft.Text);
             }
@@ -204,18 +204,18 @@ namespace WindowsFormsPhotoDirComparer
 
         private void Copy(string fileName, string sourceFolder, string destinationFolder)
         {
-            if(!Directory.Exists(destinationFolder) || !File.Exists(fileName))
+            if (!Directory.Exists(destinationFolder) || !File.Exists(fileName))
             {
                 Debug.Fail("Destination directory or file does not exists");
                 return;
             }
-            
+
             destinationFolder = Path.Combine(destinationFolder, GetSubfolder(fileName, sourceFolder));
-            if(!Directory.Exists(destinationFolder))
+            if (!Directory.Exists(destinationFolder))
             {
                 Directory.CreateDirectory(destinationFolder);
             }
-            
+
             File.Copy(fileName, Path.Combine(destinationFolder, Path.GetFileName(fileName)), false);
         }
 
