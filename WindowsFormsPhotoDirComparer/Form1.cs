@@ -11,6 +11,8 @@ namespace WindowsFormsPhotoDirComparer
         private string[] Extensions = new[] { "jpg" };
         List<Picture> _picturesLeft;
         List<Picture> _picturesRight;
+        Tuple<List<Picture>, List<Picture>> _originals;
+        Tuple<List<Picture>, List<Picture>> _duplicates;
 
         public Form1()
         {
@@ -83,8 +85,16 @@ namespace WindowsFormsPhotoDirComparer
 
             if (_picturesLeft != null && _picturesRight != null)
             {
-                Tuple<List<Picture>, List<Picture>> results = _radioDuplicates.Checked ? FindDuplicates(_picturesLeft, _picturesRight) : FindOriginals(_picturesLeft, _picturesRight);
-                ShowResults(results);
+                if(_radioDuplicates.Checked)
+                {
+                    _duplicates = FindDuplicates(_picturesLeft, _picturesRight);
+                    ShowResults(_duplicates);
+                }
+                else
+                {
+                    _originals = FindOriginals(_picturesLeft, _picturesRight);
+                    ShowResults(_originals);
+                }
             }
         }
 
@@ -188,7 +198,9 @@ namespace WindowsFormsPhotoDirComparer
 
         private void CopyToRightClick(object sender, EventArgs e)
         {
-            foreach (var picture in _picturesLeft)
+            List<Picture> pictures = _radioDuplicates.Checked ? _duplicates.Item1 : _originals.Item1;
+
+            foreach (var picture in pictures)
             {
                 Copy(picture.Name, _textPathLeft.Text, _textPathRight.Text);
             }
@@ -196,7 +208,9 @@ namespace WindowsFormsPhotoDirComparer
 
         private void CopyToLeftClick(object sender, EventArgs e)
         {
-            foreach (var picture in _picturesRight)
+            List<Picture> pictures = _radioDuplicates.Checked ? _duplicates.Item2 : _originals.Item2;
+
+            foreach (var picture in pictures)
             {
                 Copy(picture.Name, _textPathRight.Text, _textPathLeft.Text);
             }
