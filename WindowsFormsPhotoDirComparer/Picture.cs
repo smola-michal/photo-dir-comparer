@@ -25,5 +25,10 @@
         {
             return (int)(Length / 2);
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0} size:{1}\r\n", Name, Length);
+        }
     }
 }

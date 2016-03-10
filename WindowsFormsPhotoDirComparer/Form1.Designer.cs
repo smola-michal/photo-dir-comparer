@@ -33,13 +33,11 @@
             this.buttonBrowse2 = new System.Windows.Forms.Button();
             this._textPathRight = new System.Windows.Forms.TextBox();
             this.buttonGo = new System.Windows.Forms.Button();
-            this._textResultLeft = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this._radioDuplicates = new System.Windows.Forms.RadioButton();
             this._radioOriginals = new System.Windows.Forms.RadioButton();
-            this._textResultRight = new System.Windows.Forms.TextBox();
             this._buttonSaveLeft = new System.Windows.Forms.Button();
             this._buttonSaveRight = new System.Windows.Forms.Button();
             this._splitContainerResults = new System.Windows.Forms.SplitContainer();
@@ -49,6 +47,8 @@
             this._buttonLoadRight = new System.Windows.Forms.Button();
             this._labelLoadTimeLeft = new System.Windows.Forms.Label();
             this._labelLoadTimeRight = new System.Windows.Forms.Label();
+            this._listResultLeft = new System.Windows.Forms.ListBox();
+            this._listResultRight = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainerResults)).BeginInit();
             this._splitContainerResults.Panel1.SuspendLayout();
             this._splitContainerResults.Panel2.SuspendLayout();
@@ -63,6 +63,7 @@
             this._textPathLeft.Name = "_textPathLeft";
             this._textPathLeft.Size = new System.Drawing.Size(391, 20);
             this._textPathLeft.TabIndex = 0;
+            this._textPathLeft.Text = "C:\\Users\\Michal\\Pictures\\temp";
             // 
             // buttonBrowse1
             // 
@@ -94,6 +95,7 @@
             this._textPathRight.Name = "_textPathRight";
             this._textPathRight.Size = new System.Drawing.Size(391, 20);
             this._textPathRight.TabIndex = 3;
+            this._textPathRight.Text = "C:\\Users\\Michal\\Pictures\\temp2";
             // 
             // buttonGo
             // 
@@ -105,18 +107,6 @@
             this.buttonGo.Text = "Go";
             this.buttonGo.UseVisualStyleBackColor = true;
             this.buttonGo.Click += new System.EventHandler(this.GoClick);
-            // 
-            // _textResultLeft
-            // 
-            this._textResultLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._textResultLeft.Location = new System.Drawing.Point(3, 3);
-            this._textResultLeft.Multiline = true;
-            this._textResultLeft.Name = "_textResultLeft";
-            this._textResultLeft.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this._textResultLeft.Size = new System.Drawing.Size(332, 288);
-            this._textResultLeft.TabIndex = 5;
             // 
             // label1
             // 
@@ -167,18 +157,6 @@
             this._radioOriginals.Text = "Originals";
             this._radioOriginals.UseVisualStyleBackColor = true;
             // 
-            // _textResultRight
-            // 
-            this._textResultRight.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._textResultRight.Location = new System.Drawing.Point(3, 3);
-            this._textResultRight.Multiline = true;
-            this._textResultRight.Name = "_textResultRight";
-            this._textResultRight.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this._textResultRight.Size = new System.Drawing.Size(335, 288);
-            this._textResultRight.TabIndex = 11;
-            // 
             // _buttonSaveLeft
             // 
             this._buttonSaveLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -213,14 +191,14 @@
             // 
             // _splitContainerResults.Panel1
             // 
+            this._splitContainerResults.Panel1.Controls.Add(this._listResultLeft);
             this._splitContainerResults.Panel1.Controls.Add(this._buttonCopyToRight);
-            this._splitContainerResults.Panel1.Controls.Add(this._textResultLeft);
             this._splitContainerResults.Panel1.Controls.Add(this._buttonSaveLeft);
             // 
             // _splitContainerResults.Panel2
             // 
+            this._splitContainerResults.Panel2.Controls.Add(this._listResultRight);
             this._splitContainerResults.Panel2.Controls.Add(this._buttonCopyToLeft);
-            this._splitContainerResults.Panel2.Controls.Add(this._textResultRight);
             this._splitContainerResults.Panel2.Controls.Add(this._buttonSaveRight);
             this._splitContainerResults.Size = new System.Drawing.Size(683, 323);
             this._splitContainerResults.SplitterDistance = 338;
@@ -290,6 +268,31 @@
             this._labelLoadTimeRight.TabIndex = 18;
             this._labelLoadTimeRight.Text = "0:00:00";
             // 
+            // _listResultLeft
+            // 
+            this._listResultLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._listResultLeft.FormattingEnabled = true;
+            this._listResultLeft.Location = new System.Drawing.Point(4, 3);
+            this._listResultLeft.Name = "_listResultLeft";
+            this._listResultLeft.ScrollAlwaysVisible = true;
+            this._listResultLeft.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this._listResultLeft.Size = new System.Drawing.Size(331, 290);
+            this._listResultLeft.TabIndex = 14;
+            // 
+            // _listResultRight
+            // 
+            this._listResultRight.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._listResultRight.FormattingEnabled = true;
+            this._listResultRight.Location = new System.Drawing.Point(3, 3);
+            this._listResultRight.Name = "_listResultRight";
+            this._listResultRight.ScrollAlwaysVisible = true;
+            this._listResultRight.Size = new System.Drawing.Size(335, 290);
+            this._listResultRight.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,9 +316,7 @@
             this.Name = "Form1";
             this.Text = "Find unique photos";
             this._splitContainerResults.Panel1.ResumeLayout(false);
-            this._splitContainerResults.Panel1.PerformLayout();
             this._splitContainerResults.Panel2.ResumeLayout(false);
-            this._splitContainerResults.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainerResults)).EndInit();
             this._splitContainerResults.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -330,13 +331,11 @@
         private System.Windows.Forms.Button buttonBrowse2;
         private System.Windows.Forms.TextBox _textPathRight;
         private System.Windows.Forms.Button buttonGo;
-        private System.Windows.Forms.TextBox _textResultLeft;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton _radioDuplicates;
         private System.Windows.Forms.RadioButton _radioOriginals;
-        private System.Windows.Forms.TextBox _textResultRight;
         private System.Windows.Forms.Button _buttonSaveLeft;
         private System.Windows.Forms.Button _buttonSaveRight;
         private System.Windows.Forms.SplitContainer _splitContainerResults;
@@ -346,6 +345,8 @@
         private System.Windows.Forms.Button _buttonCopyToLeft;
         private System.Windows.Forms.Label _labelLoadTimeLeft;
         private System.Windows.Forms.Label _labelLoadTimeRight;
+        private System.Windows.Forms.ListBox _listResultLeft;
+        private System.Windows.Forms.ListBox _listResultRight;
     }
 }
 

@@ -100,17 +100,17 @@ namespace WindowsFormsPhotoDirComparer
 
         private void ShowResults(Tuple<List<Picture>, List<Picture>> results)
         {
-            _textResultLeft.Clear();
-            _textResultRight.Clear();
+            _listResultLeft.Items.Clear();
+            _listResultRight.Items.Clear();
 
             foreach (Picture result in results.Item1)
             {
-                _textResultLeft.AppendText(string.Format("{0} size:{1}\r\n", result.Name, result.Length));
+                _listResultLeft.Items.Add(result);
             }
 
             foreach (Picture result in results.Item2)
             {
-                _textResultRight.AppendText(string.Format("{0} size:{1}\r\n", result.Name, result.Length));
+                _listResultRight.Items.Add(result);
             }
         }
 
