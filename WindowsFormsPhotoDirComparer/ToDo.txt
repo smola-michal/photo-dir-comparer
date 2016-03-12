@@ -1,0 +1,8 @@
+﻿* LIST FUNCTIONALITY
+- Remove items
+- Compare items (by exif or visualy)
+
+* OTHER
+- Make loading and comparing async
+- Add duration label for comparing
+- Show wait cursor for comparing
